@@ -19,5 +19,4 @@ jobs:
     name: Hello
     runs-on: ubuntu-20.04
     steps:
-      - name: Print
       - run: echo "Triggered by ${{ github.event_name }} event, workflow ${{ github.workflow }}, run_id ${{ github.run_id }}"
