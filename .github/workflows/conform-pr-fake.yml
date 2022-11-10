@@ -1,0 +1,33 @@
+---
+name: Conform PR
+on:
+  pull_request_target:
+    types:
+      - assigned
+      - unassigned
+      - labeled
+      - unlabeled
+      - opened
+      - edited
+      # - closed
+      - reopened
+      - synchronize
+      - converted_to_draft
+      - ready_for_review
+      # - locked
+      - unlocked
+      - review_requested
+      - review_request_removed
+      - auto_merge_enabled
+      - auto_merge_disabled
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+
+jobs:
+  conform-pr:
+    name: Conform PR
+    runs-on: ubuntu-20.04
+    steps:
+      - run: echo "Triggered by ${{ github.event_name }} event, workflow ${{ github.workflow }}, run_id ${{ github.run_id }}, event sha ${{ github.event.pull_request.head.sha }}"
+      - run: sleep 10
