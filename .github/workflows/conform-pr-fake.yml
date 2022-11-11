@@ -30,4 +30,4 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - run: echo "Fake conform PR tiggered by ${{ github.event_name }} event, workflow ${{ github.workflow }}, run_id ${{ github.run_id }}, event sha ${{ github.event.pull_request.head.sha }}"
-      - run: sleep 10
+      - run: sleep 3
